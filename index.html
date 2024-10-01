@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Content</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            margin: 0;
+            background-color: #F4F4F4;
+            display: flex;
+            flex-direction: column;
+        }
+        .title {
+            color: black;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 36px;
+            font-family: 'Georgia', serif;
+        }
+        .container {
+            display: flex;
+            flex-grow: 1;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            animation: fadeInLeft 1s ease-in-out;
+        }
+        .sidebar ol {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar li:first-child{
+            background-color: #555;
+        }
+        .sidebar li {
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+            font-size: 18px;
+        }
+        .sidebar li:hover {
+            background-color: #555;
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            display: none;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .content.active {
+            display: block;
+        }
+        .video-container {
+            margin-top: 20px;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        WEB
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <ol>
+                <li onclick="showContent()">HTML</li>
+                <li>CSS</li>
+                <li>Javascript</li>
+            </ol>
+        </div>
+        <div class="content" id="htmlContent">
+            <h1>HTML</h1>
+            <div class="video-container">
+                <video width="600" controls>
+                    <source src="./web.html" type="video/mp4">
+                </video>
+            </div>
+            <p>Hypertext Markup Language (HTML) is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone technologies for the World Wide Web.</p>
+        </div>
+    </div>
+    <script>
+        function showContent() {
+            document.getElementById('htmlContent').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
